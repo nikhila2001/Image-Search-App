@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+  padding: 0%;
+  margin: 0%;
+}
+
+.images .image:hover {
+  transform: scaleY(1.5);
+}
+
+.buttons .button:hover {
+  transform: scaleX(1.2);
+}
+.action-btns:hover {
+  transform: scaleY(1.2);
+}
