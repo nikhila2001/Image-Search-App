@@ -6,7 +6,7 @@ import {
   ModalFooter,
 } from "react-bootstrap";
 
-const ImageModal = ({ showModal, onClose, image, description }) => {
+const ImageModal = ({ showModal, onClose, image, description,author,link }) => {
   if (!image) {
     return null; // render nothing if the image is null
   }
@@ -36,17 +36,23 @@ const ImageModal = ({ showModal, onClose, image, description }) => {
           alt={image.alt_description}
           style={{ width: "100%", height: "500px" }}
         />
-        <p className="fw-bold text-center mt-1">{description}</p>
+        <p className="fst-italic text-center mt-1">{description}</p>
+        <div className="d-flex justify-content-between">
+        <a href={link} target="blank">Original Image</a>
+        <p className="fw-bold text-right">{`Author - ${author}`}</p>
+
+        </div>
+    
       </ModalBody>
       <ModalFooter>
         <button
-          className=" action-btns bg-info p-1 border-0 "
+          className="btn-style action-btns  p-2"
           onClick={handleDownload}
         >
           Download
         </button>
         <button
-          className=" action-btns bg-info p-1  border-0"
+          className="btn-style action-btns  p-2"
           onClick={onClose}
         >
           Close

@@ -80,40 +80,42 @@ const App = () => {
   return (
     <>
       <div className="container">
-        <h1 className="title text-center text-info">Image Search</h1>
+        <h1 className="title text-center fw-bold ">Picture Gallery</h1>
         {errorMsg && <p className="error-msg">{errorMsg}</p>}
-        <div className="search-section text-center w-50 m-auto">
-          <Form onSubmit={handleSearch}>
+        <div className="search-section text-center  m-auto">
+          <Form onSubmit={handleSearch} className="d-flex">
             <Form.Control
               type="search"
               placeholder="Search any image you want..."
               className="search-input"
               ref={searchInput}
             />
+            <Button className="btn-style">Search</Button>
           </Form>
         </div>
         <div className="filters w-50 m-auto my-4">
-          <div className="row filter row-cols-lg-4 g-lg-2 ">
+          <div className="row filter ">
             <button
-              className="blue col bg-info"
-              onClick={() => handleSelection("nature")}
+              className="col category-btn"
+              onClick={() => handleSelection("food")}
             >
-              Nature
+              Food
             </button>
             <button
-              className=" blue col bg-info"
-              onClick={() => handleSelection("birds")}
+          
+              className="col category-btn"
+              onClick={() => handleSelection("Landscape")}
             >
-              Birds
+              Landscape
             </button>
             <button
-              className="blue col bg-info"
+              className=" col category-btn"
               onClick={() => handleSelection("cats")}
             >
               Cats
             </button>
             <button
-              className="blue col bg-info"
+              className="col category-btn"
               onClick={() => handleSelection("shoes")}
             >
               Shoes
@@ -126,8 +128,9 @@ const App = () => {
         ) : (
           <>
             <div className="container my-5 text-center">
-              <div className="images row-cols-4 ">
+              <div className="images  row-cols-1 row-cols-sm-2 row-cols-md-4 ">
                 {images.map((image) => (
+                  
                   <img
                     key={image.id}
                     src={image.urls.small}
@@ -143,7 +146,7 @@ const App = () => {
             <div className="buttons text-center mb-4 ">
               {page > 1 && (
                 <Button
-                  className="mx-3 button"
+                  className=" btn-style mx-3 button"
                   onClick={() => setPage(page - 1)}
                 >
                   Previous
@@ -152,7 +155,7 @@ const App = () => {
               {/* Show the Previous button only if the value of page is greater than 1 */}
               {page < totalpages && (
                 <Button
-                  className="mx-3 button"
+                  className=" btn-style mx-3 button"
                   onClick={() => setPage(page + 1)}
                 >
                   Next
@@ -165,6 +168,9 @@ const App = () => {
               onClose={closeModal}
               image={selectedImage}
               description={selectedImage ? selectedImage.description : ""}
+              author={selectedImage ? selectedImage.user.name: ""}
+              link={selectedImage ? selectedImage.urls.regular:""}
+            
             />
           </>
         )}
