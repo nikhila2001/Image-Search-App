@@ -90,7 +90,7 @@ const App = () => {
               className="search-input"
               ref={searchInput}
             />
-            <Button className="btn-style">Search</Button>
+            <Button className="btn-style" onClick={fetchImages}>Search</Button>
           </Form>
         </div>
         <div className="filters w-50 m-auto my-4">
