@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import axios from "axios"; // import axios library for fetching api data
 import { useCallback, useEffect, useRef, useState } from "react"; // import necessary react hooks
 import { Form, Button } from "react-bootstrap"; // import react bootstrap form and button component
